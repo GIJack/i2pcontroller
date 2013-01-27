@@ -1,0 +1,32 @@
+# Maintainer: GI_Jack <iamjacksemail@hackermail.com>
+pkgname=I2PController
+pkgver=1
+pkgrel=1
+pkgdesc="GUI I2P Controller written in python."
+url="http://www.foo.tld"
+arch=('x86_64' 'i686')
+license=('GPLv3')
+depends=('pyqt' 'python' 'xdg-utils' 'i2p')
+optdepends=()
+makedepends=()
+conflicts=()
+replaces=()
+backup=()
+install=''
+source=('i2pcontroller.tar.gz')
+md5sums=()
+sha1sums=()
+  
+build() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  cmake ./ -DCMAKE_INSTALL_PREFIX=/usr
+  make
+}
+ 
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  make DESTDIR="${pkgdir}" install
+  install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
+}
+ 
+# vim:set ts=2 sw=2 et:

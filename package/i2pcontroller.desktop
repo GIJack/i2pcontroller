@@ -1,0 +1,7 @@
+[desktop]
+Type=Application
+Name=I2P Control
+GenericName=GUI Controller for I2P
+Comment=GUI Controller for the I2P Privacy/Dark net
+exec="firefox -new-tab 127.0.0.1:7657"
+Categories=System;Network

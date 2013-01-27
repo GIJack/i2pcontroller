@@ -1,0 +1,9 @@
+What Works So Far:
+1. Web Console button Works
+2. Exit Button Works.
+3. Start Button Works
+4. Stop Button Works
+5. Window behaves exactly as it should, i.e, cannot be resized, text field cannot be input to, but otherwise functions, buttons generate predictable signals, etc...
+
+What needs to be done:
+1. Code always on top check box
