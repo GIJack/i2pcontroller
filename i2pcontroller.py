@@ -15,6 +15,11 @@ from mainwindow import Ui_I2PController
 
 #define a buffer of all the text in the status window
 i2p_buffer = ""
+
+def i2p_fork(command):
+    pid = os.fork()
+    ret_val = subprocess.check_output(['i2prouter', command])
+    return ret_val
 class I2PMain(QtGui.QDialog):
 
     def __init__(self, parent=None):
@@ -27,11 +32,10 @@ class I2PMain(QtGui.QDialog):
         self.ui.btnConsole.clicked.connect(self.open_web_console)
         self.ui.btnStartI2P.clicked.connect(self.start_button_press)
         self.ui.btnStopI2p.clicked.connect(self.stop_button_press)
-        self.ui.chkOnTop.stateChanged.connect(self.chk_ontop_select) #fix this
+        self.ui.chkOnTop.stateChanged.connect(self.chk_ontop_select)
 
     def status_button_press(self):
         global i2p_buffer
-        pid = os.fork()
         i2p_status = subprocess.check_output(['i2prouter', 'status'])
         i2p_status = str(i2p_status).strip('b')
         i2p_status = str(i2p_status).strip("\'")
@@ -42,7 +46,6 @@ class I2PMain(QtGui.QDialog):
 
     def start_button_press(self):
         global i2p_buffer
-        pid = os.fork()
         i2p_status = subprocess.check_output(['i2prouter', 'start'])
         i2p_status = str(i2p_status).strip('b')
         i2p_status = str(i2p_status).strip("\'")
@@ -53,7 +56,6 @@ class I2PMain(QtGui.QDialog):
 
     def stop_button_press(self):
         global i2p_buffer
-        pid = os.fork()
         i2p_status = subprocess.check_output(['i2prouter', 'stop'])
         i2p_status = str(i2p_status).strip('b')
         i2p_status = str(i2p_status).strip("\'")
