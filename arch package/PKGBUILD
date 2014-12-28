@@ -1,32 +1,39 @@
 # Maintainer: GI_Jack <iamjacksemail@hackermail.com>
-pkgname=I2PController
-pkgver=1
+pkgname=i2p-controller
+pkgver=2
 pkgrel=1
 pkgdesc="GUI I2P Controller written in python."
-url="http://www.foo.tld"
-arch=('x86_64' 'i686')
-license=('GPLv3')
-depends=('pyqt' 'python' 'xdg-utils' 'i2p')
-optdepends=()
-makedepends=()
-conflicts=()
-replaces=()
-backup=()
-install=''
-source=('i2pcontroller.tar.gz')
-md5sums=()
-sha1sums=()
-  
+url="http://sourceforge.net/projects/i2pcontroller/"
+arch=('any')
+license=('GPLv3' 'GPLv2')
+depends=('python-pyqt4' 'python' 'xdg-utils' 'i2p')
+source=('https://downloads.sourceforge.net/project/i2pcontroller/i2pcontroller.tar.gz?r=&ts=1359262496&use_mirror=master')
+md5sums=('ea3823a474725743671c91d06ffbd3fa')
+sha1sums=('968e0b5b66e00f76b9ca836ea815dec7af02af79')
 build() {
-  cd "${srcdir}/${pkgname}-${pkgver}"
-  cmake ./ -DCMAKE_INSTALL_PREFIX=/usr
-  make
+  cd "${srcdir}"
+  #compile into bytecode
+  python -m py_compile i2pcontroller.py mainwindow.py # precompile bytecode
+
 }
  
 package() {
-  cd "${srcdir}/${pkgname}-${pkgver}"
-  make DESTDIR="${pkgdir}" install
-  install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/COPYING"
+  cd '${pkgdir}'
+  #make directories
+  mkdir -p usr/share/i2pcontroller
+  mkdir -p usr/bin
+  mkdir -p usr/share/applications
+
+  #copy files
+  mv '${srcdir}'/i2pcontroller.py usr/share/i2pcontroller/
+  mv '${srcdir}'/mainwindow.py usr/share/i2pcontroller/
+  mv '${srcdir}'/__pycache__/* usr/share/i2pcontroller/
+  mv '${srcdir}'/i2pcontroller usr/bin/
+  mv '${srcdir}'/i2p_wrapper usr/bin/
+  #rename compiled files
+  cd usr/share/i2pcontroller
+  mv i2pcontroller.cpython-34.pyc i2pcontroller.pyc
+  mv mainwindow.cpython-34.pyc mainwindow.pyc
 }
  
 # vim:set ts=2 sw=2 et:
