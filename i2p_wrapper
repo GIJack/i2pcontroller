@@ -1,0 +1,47 @@
+#!/bin/bash
+# Part of i2pcontroller package
+# Written GI_Jack License is GPL v2, v3 or later.
+# This is a wrapper to make sure i2p runs as root. It needs to be SUID root. There is no good way around this.
+
+#First lets make sure we are root
+if [ ${EUID} -ne 0 ];then
+    echo "${0}: We don't have root permissions, this script needs to SUID!"
+    exit 1
+fi
+
+#Second, find the i2p router program.
+i2prouter=""
+if [ -f "${PWD}/i2prouter" ];then
+    i2prouter="${PWD}/i2prouter"
+  elif [ ! -z "$(which i2prouter)" ];then
+    i2prouter="$(which i2prouter)"
+  elif [ -f /opt/i2p/i2prouter ];then
+     i2prouter=/opt/i2p/i2prouter
+  else
+     echo "${0}: Cannot find i2prouter, quitting"
+     exit 1
+fi
+
+#Third, check the input. We are SUID, so we sanitize input. This is most likely overkill.(could simply use $1)
+argument=""
+
+case ${1} in
+  start)
+     argument="start"
+     ;;
+  stop)
+    argument="stop"
+    ;;
+  status)
+    argument="status"
+    ;;
+  *)
+    echo "${0}: Invalid command: Valid commands are start, stop, and status"
+    exit 1
+    ;;
+esac
+
+#Finally, once we've checked everything, we then run i2prouter <command>, mind you we are root.
+$i2prouter $argument
+#now pass the exit code back out to the program
+exit $?

@@ -5,6 +5,9 @@
   <property name="windowModality">
    <enum>Qt::NonModal</enum>
   </property>
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -30,6 +33,11 @@
     <width>432</width>
     <height>391</height>
    </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>I2P Controller</string>
@@ -88,8 +96,8 @@
     <rect>
      <x>10</x>
      <y>260</y>
-     <width>411</width>
-     <height>71</height>
+     <width>410</width>
+     <height>75</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -106,16 +114,16 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>91</width>
-      <height>51</height>
+      <width>90</width>
+      <height>55</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Sans Serif</family>
       <pointsize>12</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="toolTip">
@@ -130,16 +138,16 @@
      <rect>
       <x>110</x>
       <y>10</y>
-      <width>91</width>
-      <height>51</height>
+      <width>90</width>
+      <height>55</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Sans Serif</family>
       <pointsize>12</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="toolTip">
@@ -154,23 +162,24 @@
      <rect>
       <x>210</x>
       <y>10</y>
-      <width>91</width>
-      <height>51</height>
+      <width>90</width>
+      <height>55</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Sans Serif</family>
       <pointsize>12</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="toolTip">
      <string>Check The Status of the I2P Daemon</string>
     </property>
     <property name="text">
-     <string>I2P Status</string>
+     <string>I2P
+Status</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btnConsole">
@@ -178,16 +187,16 @@
      <rect>
       <x>310</x>
       <y>10</y>
-      <width>91</width>
-      <height>51</height>
+      <width>90</width>
+      <height>55</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Sans Serif</family>
       <pointsize>12</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
     </property>
     <property name="toolTip">
@@ -217,7 +226,7 @@
    <property name="font">
     <font>
      <family>Sans Serif</family>
-     <pointsize>12</pointsize>
+     <pointsize>14</pointsize>
     </font>
    </property>
    <property name="toolTip">
@@ -245,9 +254,9 @@
    <property name="font">
     <font>
      <family>Sans Serif</family>
-     <pointsize>15</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="toolTip">

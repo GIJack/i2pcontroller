@@ -18,8 +18,12 @@ i2p_buffer = ""
 
 def i2p_fork(command):
     pid = os.fork()
-    ret_val = subprocess.check_output(['i2prouter', command])
-    return ret_val
+    output = subprocess.check_output(['i2prouter', command])
+    output = str(i2p_status).strip('b')
+    output = str(i2p_status).strip("\'")
+    output = str(i2p_status).replace("\\n","\n")
+    return output
+
 class I2PMain(QtGui.QDialog):
 
     def __init__(self, parent=None):
@@ -32,6 +36,7 @@ class I2PMain(QtGui.QDialog):
         self.ui.btnConsole.clicked.connect(self.open_web_console)
         self.ui.btnStartI2P.clicked.connect(self.start_button_press)
         self.ui.btnStopI2p.clicked.connect(self.stop_button_press)
+        #always on top butotn
         self.ui.chkOnTop.stateChanged.connect(self.chk_ontop_select)
 
     def status_button_press(self):
@@ -67,11 +72,11 @@ class I2PMain(QtGui.QDialog):
         #we think this works disabled for now function hits as planned though
         #0 box is unchecked
         if state == 0:
-            #self.ui.I2PController.ui.setWindowFlags(Qt::WindowStaysOnTopHint)
+            #self.ui.I2PController.setWindowFlags(Qt::WindowStaysOnTopHint)
             return -1
         #2 box is checked
         elif state == 2:
-            #self.ui.I2PController.ui.setWindowFlags(Qt::WindowStaysOnTopHint)
+            #self.ui.I2PController.setWindowFlags(Qt::WindowStaysOnTopHint)
             return -1
 
     def open_web_console(self):

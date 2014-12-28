@@ -2,8 +2,8 @@
 
 # Form implementation generated from reading ui file 'i2pcontroller.ui'
 #
-# Created: Sat Jan 26 16:00:39 2013
-#      by: PyQt4 UI code generator 4.9.1
+# Created: Sat Dec 27 19:43:31 2014
+#      by: PyQt4 UI code generator 4.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,11 +12,21 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_I2PController(object):
     def setupUi(self, I2PController):
         I2PController.setObjectName(_fromUtf8("I2PController"))
+        I2PController.setWindowModality(QtCore.Qt.NonModal)
         I2PController.resize(432, 391)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -52,6 +62,7 @@ class Ui_I2PController(object):
         self.btnStartI2P = QtGui.QPushButton(self.boxControl)
         self.btnStartI2P.setGeometry(QtCore.QRect(10, 10, 91, 51))
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Sans Serif"))
         font.setPointSize(12)
         font.setBold(False)
         font.setWeight(50)
@@ -60,19 +71,28 @@ class Ui_I2PController(object):
         self.btnStopI2p = QtGui.QPushButton(self.boxControl)
         self.btnStopI2p.setGeometry(QtCore.QRect(110, 10, 91, 51))
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Sans Serif"))
         font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
         self.btnStopI2p.setFont(font)
         self.btnStopI2p.setObjectName(_fromUtf8("btnStopI2p"))
         self.btnStatus = QtGui.QPushButton(self.boxControl)
         self.btnStatus.setGeometry(QtCore.QRect(210, 10, 91, 51))
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Sans Serif"))
         font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
         self.btnStatus.setFont(font)
         self.btnStatus.setObjectName(_fromUtf8("btnStatus"))
         self.btnConsole = QtGui.QPushButton(self.boxControl)
         self.btnConsole.setGeometry(QtCore.QRect(310, 10, 91, 51))
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Sans Serif"))
         font.setPointSize(12)
+        font.setBold(False)
+        font.setWeight(50)
         self.btnConsole.setFont(font)
         self.btnConsole.setObjectName(_fromUtf8("btnConsole"))
         self.chkOnTop = QtGui.QCheckBox(I2PController)
@@ -83,7 +103,8 @@ class Ui_I2PController(object):
         sizePolicy.setHeightForWidth(self.chkOnTop.sizePolicy().hasHeightForWidth())
         self.chkOnTop.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setFamily(_fromUtf8("Sans Serif"))
+        font.setPointSize(12)
         self.chkOnTop.setFont(font)
         self.chkOnTop.setStatusTip(_fromUtf8(""))
         self.chkOnTop.setWhatsThis(_fromUtf8(""))
@@ -91,7 +112,10 @@ class Ui_I2PController(object):
         self.btnExit = QtGui.QPushButton(I2PController)
         self.btnExit.setGeometry(QtCore.QRect(30, 340, 121, 41))
         font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Sans Serif"))
         font.setPointSize(15)
+        font.setBold(False)
+        font.setWeight(50)
         self.btnExit.setFont(font)
         self.btnExit.setCheckable(False)
         self.btnExit.setChecked(False)
@@ -105,21 +129,21 @@ class Ui_I2PController(object):
         QtCore.QMetaObject.connectSlotsByName(I2PController)
 
     def retranslateUi(self, I2PController):
-        I2PController.setWindowTitle(QtGui.QApplication.translate("I2PController", "I2P Controller", None, QtGui.QApplication.UnicodeUTF8))
-        self.txtConOut.setToolTip(QtGui.QApplication.translate("I2PController", "I2P Console Output", None, QtGui.QApplication.UnicodeUTF8))
-        self.btnStartI2P.setToolTip(QtGui.QApplication.translate("I2PController", "Start the I2P Daemon", None, QtGui.QApplication.UnicodeUTF8))
-        self.btnStartI2P.setText(QtGui.QApplication.translate("I2PController", "Start I2P", None, QtGui.QApplication.UnicodeUTF8))
-        self.btnStopI2p.setToolTip(QtGui.QApplication.translate("I2PController", "Stop the I2P Daemon", None, QtGui.QApplication.UnicodeUTF8))
-        self.btnStopI2p.setText(QtGui.QApplication.translate("I2PController", "Stop I2P", None, QtGui.QApplication.UnicodeUTF8))
-        self.btnStatus.setToolTip(QtGui.QApplication.translate("I2PController", "Check The Status of the I2P Daemon", None, QtGui.QApplication.UnicodeUTF8))
-        self.btnStatus.setText(QtGui.QApplication.translate("I2PController", "I2P Status", None, QtGui.QApplication.UnicodeUTF8))
-        self.btnConsole.setToolTip(QtGui.QApplication.translate("I2PController", "Open the I2P Web Console", None, QtGui.QApplication.UnicodeUTF8))
-        self.btnConsole.setText(QtGui.QApplication.translate("I2PController", "Web \n"
-" Console", None, QtGui.QApplication.UnicodeUTF8))
-        self.chkOnTop.setToolTip(QtGui.QApplication.translate("I2PController", "I2P Controller is Always On Top Of Other WIndows", None, QtGui.QApplication.UnicodeUTF8))
-        self.chkOnTop.setText(QtGui.QApplication.translate("I2PController", "On Top", None, QtGui.QApplication.UnicodeUTF8))
-        self.btnExit.setToolTip(QtGui.QApplication.translate("I2PController", "Close This Window", None, QtGui.QApplication.UnicodeUTF8))
-        self.btnExit.setText(QtGui.QApplication.translate("I2PController", "Exit", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionTest.setText(QtGui.QApplication.translate("I2PController", "test", None, QtGui.QApplication.UnicodeUTF8))
-        self.actionTest.setToolTip(QtGui.QApplication.translate("I2PController", "test action", None, QtGui.QApplication.UnicodeUTF8))
+        I2PController.setWindowTitle(_translate("I2PController", "I2P Controller", None))
+        self.txtConOut.setToolTip(_translate("I2PController", "I2P Console Output", None))
+        self.btnStartI2P.setToolTip(_translate("I2PController", "Start the I2P Daemon", None))
+        self.btnStartI2P.setText(_translate("I2PController", "Start I2P", None))
+        self.btnStopI2p.setToolTip(_translate("I2PController", "Stop the I2P Daemon", None))
+        self.btnStopI2p.setText(_translate("I2PController", "Stop I2P", None))
+        self.btnStatus.setToolTip(_translate("I2PController", "Check The Status of the I2P Daemon", None))
+        self.btnStatus.setText(_translate("I2PController", "I2P Status", None))
+        self.btnConsole.setToolTip(_translate("I2PController", "Open the I2P Web Console", None))
+        self.btnConsole.setText(_translate("I2PController", "Web \n"
+" Console", None))
+        self.chkOnTop.setToolTip(_translate("I2PController", "I2P Controller is Always On Top Of Other WIndows", None))
+        self.chkOnTop.setText(_translate("I2PController", "On Top", None))
+        self.btnExit.setToolTip(_translate("I2PController", "Close This Window", None))
+        self.btnExit.setText(_translate("I2PController", "Exit", None))
+        self.actionTest.setText(_translate("I2PController", "test", None))
+        self.actionTest.setToolTip(_translate("I2PController", "test action", None))
 

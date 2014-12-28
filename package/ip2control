@@ -1,3 +1,0 @@
-#!/bin/sh
-cd /usr/share/i2pcontroller
-python i2pcontroller.py
