@@ -75,13 +75,13 @@ class I2PMain(QtGui.QDialog):
         #we think this works. disabled for now function hits as planned though
         #0 box is unchecked
         if state == 0:
-            self.ui.I2PController.setWindowFlags()
-            return -1
+            #self.ui.I2PController.setWindowFlags()
+            #return -1
         #2 box is checked
         elif state == 2:
-            #self.setWindowFlags(Qt::WindowStaysOnTopHint)
-            self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
-            return -1
+            #for some reason this crashes the window, TODO: investigate
+            #self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
+            #return -1
 
     def open_web_console(self):
         subprocess.call(['xdg-open', 'http://localhost:7657/home' ])
