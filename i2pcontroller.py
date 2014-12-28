@@ -16,12 +16,11 @@ from mainwindow import Ui_I2PController
 #define a buffer of all the text in the status window
 i2p_buffer = ""
 
-def i2p_fork(command):
-    pid = os.fork()
+def i2p_call(command):
     output = subprocess.check_output(['i2prouter', command])
-    output = str(i2p_status).strip('b')
-    output = str(i2p_status).strip("\'")
-    output = str(i2p_status).replace("\\n","\n")
+    output = str(output).strip('b')
+    output = output.strip("\'")
+    output = output.replace("\\n","\n")
     return output
 
 class I2PMain(QtGui.QDialog):
@@ -41,42 +40,47 @@ class I2PMain(QtGui.QDialog):
 
     def status_button_press(self):
         global i2p_buffer
-        i2p_status = subprocess.check_output(['i2prouter', 'status'])
-        i2p_status = str(i2p_status).strip('b')
-        i2p_status = str(i2p_status).strip("\'")
-        i2p_status = str(i2p_status).replace("\\n","\n")
+        i2p_status = i2p_call("status")
+        #i2p_status = subprocess.check_output(['i2prouter', 'status'])
+        #i2p_status = str(i2p_status).strip('b')
+        #i2p_status = i2p_status.strip("\'")
+        #i2p_status = i2p_status.replace("\\n","\n")
         i2p_buffer = i2p_buffer + i2p_status
         self.ui.txtConOut.setPlainText(i2p_buffer)
         self.ui.txtConOut.moveCursor(QtGui.QTextCursor.End)
 
     def start_button_press(self):
         global i2p_buffer
-        i2p_status = subprocess.check_output(['i2prouter', 'start'])
-        i2p_status = str(i2p_status).strip('b')
-        i2p_status = str(i2p_status).strip("\'")
-        i2p_status = str(i2p_status).replace("\\n","\n")
+        #pid = os.fork()
+        i2p_status = i2p_call('start')
+        #i2p_status = subprocess.check_output(['i2prouter', 'start'])
+        #i2p_status = str(i2p_status).strip('b')
+        #i2p_status = str(i2p_status).strip("\'")
+        #i2p_status = str(i2p_status).replace("\\n","\n")
         i2p_buffer = i2p_buffer + i2p_status
         self.ui.txtConOut.setPlainText(i2p_buffer)
         self.ui.txtConOut.moveCursor(QtGui.QTextCursor.End)
 
     def stop_button_press(self):
         global i2p_buffer
-        i2p_status = subprocess.check_output(['i2prouter', 'stop'])
-        i2p_status = str(i2p_status).strip('b')
-        i2p_status = str(i2p_status).strip("\'")
-        i2p_status = str(i2p_status).replace("\\n","\n")
+        i2p_status = i2p_call('start')
+        #i2p_status = subprocess.check_output(['i2prouter', 'stop'])
+        #i2p_status = str(i2p_status).strip('b')
+        #i2p_status = i2p_status.strip("\'")
+        #i2p_status = i2p_status.replace("\\n","\n")
         i2p_buffer = i2p_buffer + i2p_status
         self.ui.txtConOut.setPlainText(i2p_buffer)
         self.ui.txtConOut.moveCursor(QtGui.QTextCursor.End)
     def chk_ontop_select(self,state):
-        #we think this works disabled for now function hits as planned though
+        #we think this works. disabled for now function hits as planned though
         #0 box is unchecked
         if state == 0:
-            #self.ui.I2PController.setWindowFlags(Qt::WindowStaysOnTopHint)
+            self.ui.I2PController.setWindowFlags()
             return -1
         #2 box is checked
         elif state == 2:
-            #self.ui.I2PController.setWindowFlags(Qt::WindowStaysOnTopHint)
+            #self.setWindowFlags(Qt::WindowStaysOnTopHint)
+            self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
             return -1
 
     def open_web_console(self):
