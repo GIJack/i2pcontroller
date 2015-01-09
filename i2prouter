@@ -84,10 +84,11 @@ _console() {
 _start() {
     if [[ ! "$pid" ]]; then
         echo -n "Starting I2P Service"
-        COMMAND_LINE+=" wrapper.daemonize=TRUE"
         #change this. it be broke
-        cp "$WRAPPER_CONF" "${PIDDIR}/${WRAPPER_CONF}"
-        WRAPPER_CONF="${PIDDIR}/${WRAPPER_CONF}"
+        cp "$WRAPPER_CONF" "${PIDDIR}/wrapper.config"
+        WRAPPER_CONF="${PIDDIR}/wrapper.config"
+        init_vars
+        COMMAND_LINE+=" wrapper.daemonize=TRUE"
         echo "wrapper.java.pidfile=$HOME/.i2p/i2p.pid" >> "$WRAPPER_CONF"
         mkdir -p "$PIDDIR"
         eval $COMMAND_LINE
@@ -114,8 +115,6 @@ _restart() {
 _stop() {
     if [[ "$pid" ]]; then
         echo -n "Stopping I2P Service"
-        rm "$WRAPPER_CONF"
-        int_vars
         kill -TERM "$pid"
         [[ $? != 0 ]] && fail "Unable to stop I2P Service: kill -TERM $pid"
         i=0

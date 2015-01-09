@@ -1,10 +1,20 @@
 ABOUT:
-This is a very simple graphical controller for I2P. I think its use should be self explanitory. It was written in python with Qt4
+This is a very simple graphical controller for I2P. Its use should be self explanitory. It was written in python with Qt4
+
+Usage:
+run i2pcontroller.py with python3 intepreter, or on the command line
+
+Hacking:
+the file i2pcontroller.ui can be edited with QtCreator or similar, and gets compiled to mainwindow.py with pyuic4
+
 
 Requirements:
 python
-pyqt4
+python qt4 (python-pyqt4)
 xdg-utils
 
 AUTHOR:
 GI_Jack <iamjacksemail@hackermail.com>
+
+LICENSE:
+GPLv2, GPLv3 or any later version of the GPL, see LICENSE-GPLv2 and LICENSE-GPLv3
