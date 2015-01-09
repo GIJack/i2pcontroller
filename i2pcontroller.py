@@ -17,7 +17,7 @@ from mainwindow import Ui_I2PController
 i2p_buffer = ""
 
 def i2p_call(command):
-    output = subprocess.check_output(['i2prouter', command])
+    output = subprocess.check_output(['./i2prouter', command])
     output = str(output).strip('b')
     output = output.strip("\'")
     output = output.replace("\\n","\n")
@@ -41,10 +41,6 @@ class I2PMain(QtGui.QDialog):
     def status_button_press(self):
         global i2p_buffer
         i2p_status = i2p_call("status")
-        #i2p_status = subprocess.check_output(['i2prouter', 'status'])
-        #i2p_status = str(i2p_status).strip('b')
-        #i2p_status = i2p_status.strip("\'")
-        #i2p_status = i2p_status.replace("\\n","\n")
         i2p_buffer = i2p_buffer + i2p_status
         self.ui.txtConOut.setPlainText(i2p_buffer)
         self.ui.txtConOut.moveCursor(QtGui.QTextCursor.End)
@@ -53,10 +49,6 @@ class I2PMain(QtGui.QDialog):
         global i2p_buffer
         #pid = os.fork()
         i2p_status = i2p_call('start')
-        #i2p_status = subprocess.check_output(['i2prouter', 'start'])
-        #i2p_status = str(i2p_status).strip('b')
-        #i2p_status = str(i2p_status).strip("\'")
-        #i2p_status = str(i2p_status).replace("\\n","\n")
         i2p_buffer = i2p_buffer + i2p_status
         self.ui.txtConOut.setPlainText(i2p_buffer)
         self.ui.txtConOut.moveCursor(QtGui.QTextCursor.End)
@@ -64,10 +56,6 @@ class I2PMain(QtGui.QDialog):
     def stop_button_press(self):
         global i2p_buffer
         i2p_status = i2p_call('start')
-        #i2p_status = subprocess.check_output(['i2prouter', 'stop'])
-        #i2p_status = str(i2p_status).strip('b')
-        #i2p_status = i2p_status.strip("\'")
-        #i2p_status = i2p_status.replace("\\n","\n")
         i2p_buffer = i2p_buffer + i2p_status
         self.ui.txtConOut.setPlainText(i2p_buffer)
         self.ui.txtConOut.moveCursor(QtGui.QTextCursor.End)
@@ -76,12 +64,12 @@ class I2PMain(QtGui.QDialog):
         #0 box is unchecked
         if state == 0:
             #self.ui.I2PController.setWindowFlags()
-            #return -1
+            return -1
         #2 box is checked
         elif state == 2:
             #for some reason this crashes the window, TODO: investigate
             #self.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint)
-            #return -1
+            return -1
 
     def open_web_console(self):
         subprocess.call(['xdg-open', 'http://localhost:7657/home' ])
