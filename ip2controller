@@ -1,1 +1,2 @@
+cd /usr/share/i2pcontroller/
 python3 /usr/share/i2pcontroller/i2pcontroller.py
