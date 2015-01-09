@@ -119,10 +119,11 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>14</pointsize>
+      <family>Sans</family>
+      <pointsize>12</pointsize>
       <weight>50</weight>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="toolTip">
@@ -143,10 +144,11 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>14</pointsize>
+      <family>Sans</family>
+      <pointsize>12</pointsize>
       <weight>50</weight>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="toolTip">
@@ -167,10 +169,11 @@
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>14</pointsize>
+      <family>Sans</family>
+      <pointsize>12</pointsize>
       <weight>50</weight>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="toolTip">
@@ -192,10 +195,11 @@ Status</string>
     </property>
     <property name="font">
      <font>
-      <family>Sans Serif</family>
-      <pointsize>14</pointsize>
+      <family>Sans</family>
+      <pointsize>12</pointsize>
       <weight>50</weight>
       <bold>false</bold>
+      <kerning>true</kerning>
      </font>
     </property>
     <property name="toolTip">
