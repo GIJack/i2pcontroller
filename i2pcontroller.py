@@ -55,7 +55,7 @@ class I2PMain(QtGui.QDialog):
 
     def stop_button_press(self):
         global i2p_buffer
-        i2p_status = i2p_call('start')
+        i2p_status = i2p_call('stop')
         i2p_buffer = i2p_buffer + i2p_status
         self.ui.txtConOut.setPlainText(i2p_buffer)
         self.ui.txtConOut.moveCursor(QtGui.QTextCursor.End)
