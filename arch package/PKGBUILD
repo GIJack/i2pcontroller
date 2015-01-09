@@ -1,6 +1,6 @@
 # Maintainer: GI_Jack <iamjacksemail@hackermail.com>
 pkgname=i2p-controller
-pkgver=2
+pkgver=1.1
 pkgrel=1
 pkgdesc="GUI I2P Controller written in python."
 url="http://sourceforge.net/projects/i2pcontroller/"
