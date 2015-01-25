@@ -1,7 +1,9 @@
-[desktop]
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
 Type=Application
-Name=I2P Control
+Name=I2P Controller
 GenericName=GUI Controller for I2P
 Comment=GUI Controller for the I2P Privacy/Dark net
-exec=/usr/bin/i2pcontroller
+Exec=/usr/bin/i2pcontroller
 Categories=System;Network
