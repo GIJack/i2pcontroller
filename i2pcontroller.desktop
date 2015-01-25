@@ -3,5 +3,5 @@ Type=Application
 Name=I2P Control
 GenericName=GUI Controller for I2P
 Comment=GUI Controller for the I2P Privacy/Dark net
-exec=/usr/bin/i2pcontrol
+exec=/usr/bin/i2pcontroller
 Categories=System;Network
