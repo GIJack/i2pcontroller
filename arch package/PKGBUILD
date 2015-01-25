@@ -8,7 +8,7 @@ arch=('any')
 license=('GPLv3' 'GPLv2')
 depends=('python-pyqt4' 'python' 'xdg-utils' 'i2p')
 source=('i2pcontroller.tar.gz')
-sha256sums=('ffc1349b14109a13d7f731276a49f768064e244d9cb178b765d6c1d834d8aac5')
+sha256sums=('9b054725decafa61d90239ea4fe4716b1f8e3e7da45d3bb284f427f96b1b6f16')
 
 build() {
   cd "${srcdir}"
@@ -29,13 +29,13 @@ package() {
   mv "${srcdir}/__pycache__/"* usr/share/i2pcontroller/
   mv "${srcdir}/wrapper.config" usr/share/i2pcontroller/
 
-  mv "${srcdir}/ip2controller" usr/bin/
+  install -Dm755 "${srcdir}/ip2controller" usr/bin/i2pcontroller
   mv "${srcdir}/i2prouter" usr/share/i2pcontroller/
   mv "${srcdir}/i2pcontroller.desktop" usr/share/applications/
   #rename compiled files
   cd usr/share/i2pcontroller
-  mv i2pcontroller.cpython-34.pyc i2pcontroller.pyc
-  mv mainwindow.cpython-34.pyc mainwindow.pyc
+  mv i2pcontroller.cpython-3?.pyc i2pcontroller.pyc
+  mv mainwindow.cpython-3?.pyc mainwindow.pyc
 }
  
 # vim:set ts=2 sw=2 et:
