@@ -7,7 +7,7 @@ url="http://sourceforge.net/projects/i2pcontroller/"
 arch=('any')
 license=('GPLv3' 'GPLv2')
 depends=('python-pyqt4' 'python' 'xdg-utils' 'i2p')
-source=('https://github.com/GIJack/i2pcontroller/raw/master/arch%20package/i2pcontroller.tar.gz')
+source=("https://github.com/GIJack/i2pcontroller/raw/master/release/i2pcontroller_${pkgver}.tar.gz")
 sha256sums=('9b054725decafa61d90239ea4fe4716b1f8e3e7da45d3bb284f427f96b1b6f16')
 
 build() {
