@@ -13,8 +13,5 @@ python
 python qt4 (python-pyqt4)
 xdg-utils
 
-AUTHOR:
-GI_Jack <iamjacksemail@hackermail.com>
-
 LICENSE:
 GPLv2, GPLv3 or any later version of the GPL, see LICENSE-GPLv2 and LICENSE-GPLv3
